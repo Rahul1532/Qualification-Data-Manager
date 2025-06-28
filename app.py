@@ -90,7 +90,7 @@ def main():
             # Language filter
             languages = df['language'].unique().tolist() if 'language' in df.columns else []
             selected_languages = st.multiselect(
-                "Filter by Language",
+                "Filter by Client_Country_Name",
                 options=languages,
                 default=[]
             )
@@ -117,7 +117,7 @@ def main():
             # Qualification filter
             qualifications = df['qualification_name'].unique().tolist() if 'qualification_name' in df.columns else []
             selected_qualifications = st.multiselect(
-                "Filter by Qualification",
+                "Filter by Client Qualification Name",
                 options=qualifications,
                 default=[]
             )
