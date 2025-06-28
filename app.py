@@ -6,7 +6,7 @@ import json
 
 # Page configuration
 st.set_page_config(
-    page_title="CSV Data Manager",
+    page_title="Mapped_Data_Reviewer",
     page_icon="📊",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -38,8 +38,8 @@ def apply_score_styling(score):
         return "#f8d7da"  # Light red
 
 def main():
-    st.title("📊 CSV Data Manager")
-    st.markdown("Upload and manage CSV data with question-answer mappings, filtering, and review tracking.")
+    st.title("📊 Mapped_Data_Reviewer")
+    st.markdown("Upload and review mapped client master qualification CSV data with question-answer mappings, filtering, and review tracking.")
     
     # Sidebar for file upload and controls
     with st.sidebar:
@@ -66,14 +66,6 @@ def main():
             except Exception as e:
                 st.error(f"❌ Error loading file: {str(e)}")
                 return
-        
-        # Load sample data button
-        if st.button("📋 Load Sample Data", use_container_width=True):
-            sample_df = load_sample_data()
-            if sample_df is not None:
-                st.session_state.current_data = sample_df
-                st.success(f"✅ Loaded sample data: {len(sample_df)} records")
-                st.rerun()
         
         # Clear reviewed items
         if st.session_state.current_data is not None:
