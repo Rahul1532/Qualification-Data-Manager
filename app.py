@@ -150,7 +150,7 @@ def main():
         
         # Qualification filter
         if selected_qualifications:
-            filtered_df = filtered_df[filtered_df['qualification_name'].isin(selected_qualifications)]
+            filtered_df = filtered_df[filtered_df['client_qualification_name'].isin(selected_qualifications)]
         
         # Score range filter
         if 'score' in filtered_df.columns:
@@ -185,9 +185,9 @@ def main():
         with col4:
             if 'score' in df.columns:
                 high_score_count = len(filtered_df[filtered_df['score'] > 0.8])
-                st.metric("High Score (>0.8)", high_score_count)
+                st.metric("High Score (>0.6)", high_score_count)
             else:
-                st.metric("High Score (>0.8)", "N/A")
+                st.metric("High Score (>0.6)", "N/A")
         
         # Export buttons
         if len(filtered_df) > 0:
