@@ -115,7 +115,7 @@ def main():
         
         with col2:
             # Qualification filter
-            qualifications = df['qualification_name'].unique().tolist() if 'qualification_name' in df.columns else []
+            qualifications = df['client_qualification_name'].unique().tolist() if 'client_qualification_name' in df.columns else []
             selected_qualifications = st.multiselect(
                 "Filter by Client Qualification Name",
                 options=qualifications,
